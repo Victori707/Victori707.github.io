@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Stark VARG. A cinematic visual study of the red electric motorcycle.">
+  <title>STARK VARG — Visual Experience</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/scene-side.webp" as="image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="loading-mask" aria-hidden="true"><span>STARK</span><i></i></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <header class="header">
+    <span class="brand">STARK<span class="brand-line"></span>VARG</span>
+    <span class="header-center">ELECTRIC MOTORCYCLE</span>
+    <span class="header-link">STARK FUTURE</span>
+  </header>
+
+  <main id="top">
+    <section class="story" id="experience" aria-label="Stark VARG visual experience">
+      <div class="story-sticky">
+        <div class="scene scene-one" data-scene="0"><img src="assets/scene-side.webp" alt="Red Stark VARG motorcycle in side profile in a dark studio" fetchpriority="high"></div>
+        <div class="scene scene-two" data-scene="1"><img src="assets/scene-angle.webp" alt="Red Stark VARG motorcycle from the front in red studio light"></div>
+        <div class="scene scene-three" data-scene="2"><img src="assets/scene-detail.webp" alt="Close view of the Stark VARG front wheel and suspension"></div>
+        <div class="scene scene-four" data-scene="3"><img src="assets/scene-rear.webp" alt="Red Stark VARG motorcycle from behind in a dark tunnel"></div>
+        <div class="scene-vignette" aria-hidden="true"></div>
+        <div class="light-sweep" aria-hidden="true"></div>
+        <div class="light-flash" aria-hidden="true"></div>
+        <div class="cursor-light" aria-hidden="true"></div>
+        <div class="scene-copy copy-one" data-copy="0"><span class="scene-eyebrow">01 <b></b> 04</span><h1>STARK<br><strong>VARG</strong></h1><span class="scene-label">SIDE PROFILE</span></div>
+        <div class="scene-copy copy-two" data-copy="1"><span class="scene-eyebrow">02 <b></b> 04</span><h2>VARG</h2><span class="scene-label">FRONT VIEW</span></div>
+        <div class="scene-copy copy-three" data-copy="2"><span class="scene-eyebrow">03 <b></b> 04</span><h2>DETAILS</h2><span class="scene-label">FRONT END</span></div>
+        <div class="scene-copy copy-four" data-copy="3"><span class="scene-eyebrow">04 <b></b> 04</span><h2>VARG</h2><span class="scene-label">REAR VIEW</span></div>
+        <div class="side-rail" aria-hidden="true"><span>01</span><div class="rail-track"><div class="rail-fill"></div></div><span>04</span></div>
+        <div class="scroll-hint"><span class="mouse-line" aria-hidden="true"></span> SCROLL TO EXPLORE</div>
+        <div class="scene-index" aria-live="polite">01 / 04</div>
+      </div>
+    </section>
+    <section class="outro" aria-labelledby="outro-title"><div class="outro-glow" aria-hidden="true"></div><h2 id="outro-title">STARK<br><span>VARG</span></h2><small>UNOFFICIAL VISUAL CONCEPT</small></section>
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>

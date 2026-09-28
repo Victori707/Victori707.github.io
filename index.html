@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>VIKA — Web Developer</title>
+  <meta name="description" content="Вика — начинающий web / backend developer. Python, JavaScript, React. Реальные проекты и желание разбираться, как всё устроено внутри." />
+  <meta name="theme-color" content="#060709" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;600;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=55" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060709'/%3E%3Cpath d='M8 9l8 15 8-15' stroke='%23ff2e63' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+</head>
+<body class="is-loading">
+  <!-- ===== atmosphere ===== -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ===== cursor ===== -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"><span class="cursor__label"></span></div>
+  </div>
+
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- ===== intro ===== -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro__box">
+      <div class="intro__head"><span>vika.sys</span><span id="introPct">000%</span></div>
+      <div class="intro__lines" id="introLines"></div>
+      <div class="intro__bar"><span id="introBar"></span></div>
+    </div>
+    <button class="intro__skip" id="introSkip" type="button">skip ↵</button>
+  </div>
+
+  <!-- ===== section transition ===== -->
+  <div class="wipe" aria-hidden="true"><span class="wipe__label"></span></div>
+
+  <!-- ===== header / HUD ===== -->
+  <header class="hud">
+    <a class="hud__logo" href="#top" data-nav data-cursor="home" aria-label="Наверх">
+      <span class="hud__logo-mark">V</span><span class="hud__logo-text">vika<span>.dev</span></span>
+    </a>
+    <nav class="hud__nav" aria-label="Навигация">
+      <a href="#about" data-nav><span>01</span><b data-i18n="nav.about">обо мне</b></a>
+      <a href="#experience" data-nav><span>02</span><b data-i18n="nav.experience">опыт</b></a>
+      <a href="#projects" data-nav><span>03</span><b data-i18n="nav.projects">проекты</b></a>
+      <a href="#skills" data-nav><span>04</span><b data-i18n="nav.skills">стек</b></a>
+      <a href="#contact" data-nav><span>05</span><b data-i18n="nav.contact">связь</b></a>
+    </nav>
+    <div class="hud__right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ru" class="is-active">RU</button><i>/</i><button type="button" data-lang="en">EN</button>
+      </div>
+      <span class="hud__clock" id="clock">--:--:--</span>
+      <button class="hud__burger" id="burger" type="button" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mnav" id="mnav">
+    <nav>
+      <a href="#about" data-nav><span>01</span><b data-i18n="nav.about">обо мне</b></a>
+      <a href="#experience" data-nav><span>02</span><b data-i18n="nav.experience">опыт</b></a>
+      <a href="#projects" data-nav><span>03</span><b data-i18n="nav.projects">проекты</b></a>
+      <a href="#skills" data-nav><span>04</span><b data-i18n="nav.skills">стек</b></a>
+      <a href="#contact" data-nav><span>05</span><b data-i18n="nav.contact">связь</b></a>
+    </nav>
+  </div>
+
+  <aside class="rail" aria-hidden="true">
+    <div class="rail__track"><span class="rail__thumb"></span></div>
+    <div class="rail__label" id="railLabel">00 / init</div>
+  </aside>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top" data-label="00 / init">
+      <canvas class="hero__field" id="field" aria-hidden="true"></canvas>
+
+      <div class="hero__corner hero__corner--tl mono" aria-hidden="true">
+        <div>// portfolio.v1</div>
+        <div>build: <span class="acc">stable</span></div>
+      </div>
+      <div class="hero__corner hero__corner--tr mono" aria-hidden="true">
+        <div>cursor.x <span id="cx">0000</span></div>
+        <div>cursor.y <span id="cy">0000</span></div>
+      </div>
+
+      <div class="hero__inner">
+        <div class="hero__status">
+          <span class="pill"><i class="pill__dot pill__dot--cyan"></i><span data-type="currently exploring backend &amp; Java">currently exploring backend &amp; Java</span></span>
+          <span class="pill pill--lime"><i class="pill__dot"></i>open to work</span>
+        </div>
+
+        <h1 class="hero__name" id="heroName" aria-label="Vika — Web Developer">
+          <span class="hero__letters" aria-hidden="true">
+            <span class="hl" data-t="V">V</span><span class="hl" data-t="I">I</span><span class="hl" data-t="K">K</span><span class="hl" data-t="A">A</span>
+          </span>
+        </h1>
+
+        <div class="hero__sub">
+          <div class="hero__role" data-split="chars" data-delay="0.9">Web Developer</div>
+          <div class="hero__stack mono">
+            <span data-scramble>Python</span><b>•</b><span data-scramble>JavaScript</span><b>•</b><span data-scramble>React</span>
+          </div>
+        </div>
+
+        <p class="hero__phrase" data-split="words" data-delay="1.3">I build things for the web — and keep learning how they work underneath.</p>
+      </div>
+
+      <div class="chibi chibi--hero" aria-hidden="true">
+        <span class="chibi__heart">♥</span>
+        <img src="assets/vika/laptop.webp" alt="" width="900" height="1093" decoding="async" fetchpriority="high" />
+      </div>
+
+      <a class="hero__scroll mono" href="#about" data-nav data-cursor="scroll">
+        <span data-i18n="hero.scroll">листай</span>
+        <i></i>
+      </a>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section about" id="about" data-label="01 / about">
+      <div class="sec-head">
+        <span class="sec-head__idx mono">01</span>
+        <h2 class="sec-head__title" data-split="chars" data-i18n="about.title">Обо мне</h2>
+        <span class="sec-head__tag mono">~/whoami</span>
+      </div>
+
+      <div class="about__grid">
+        <p class="about__manifest" data-scrub data-i18n="about.manifest">Я — Вика. Студентка 3 курса. Делаю интерфейсы, которые приятно трогать, и учусь понимать, что происходит под ними, — поэтому постепенно двигаюсь в сторону backend.</p>
+
+        <div class="term-wrap">
+          <img class="chibi-peek" src="assets/vika/peek.webp" alt="" width="600" height="347" loading="lazy" decoding="async" aria-hidden="true" />
+        <div class="term" data-reveal data-tilt="4">
+          <div class="term__bar">
+            <i></i><i></i><i></i>
+            <span class="mono">vika@portfolio: ~</span>
+          </div>
+          <div class="term__cmds" role="tablist" aria-label="Команды">
+            <button type="button" class="is-active" data-cmd="whoami">whoami</button>
+            <button type="button" data-cmd="core">stack --core</button>
+            <button type="button" data-cmd="used">stack --used</button>
+            <button type="button" data-cmd="now">now</button>
+            <button type="button" data-cmd="honest">goals</button>
+          </div>
+          <div class="term__body mono" id="termBody" aria-live="polite"></div>
+        </div>
+        </div>
+      </div>
+
+      <div class="facts">
+        <div class="fact" data-reveal>
+          <span class="fact__k mono" data-i18n="about.f1k">курс</span>
+          <span class="fact__v"><em>3</em>/4</span>
+          <span class="fact__d" data-i18n="about.f1d">колледж, 3 курс из 4</span>
+        </div>
+        <div class="fact" data-reveal>
+          <span class="fact__k mono" data-i18n="about.f2k">уверенно</span>
+          <span class="fact__v fact__v--sm">Python · HTML · CSS</span>
+          <span class="fact__d" data-i18n="about.f2d">основа, на которой стоит всё остальное</span>
+        </div>
+        <div class="fact" data-reveal>
+          <span class="fact__k mono" data-i18n="about.f3k">сейчас учу</span>
+          <span class="fact__v fact__v--sm">Java</span>
+          <span class="fact__d" data-i18n="about.f3d">курс Java Developer от Skillbox</span>
+        </div>
+        <div class="fact" data-reveal>
+          <span class="fact__k mono" data-i18n="about.f4k">вектор</span>
+          <span class="fact__v fact__v--sm">web <span class="acc">→</span> backend</span>
+          <span class="fact__d" data-i18n="about.f4d">от интерфейсов к тому, как всё работает внутри</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="section experience" id="experience" data-label="02 / experience">
+      <div class="sec-head">
+        <span class="sec-head__idx mono">02</span>
+        <h2 class="sec-head__title" data-split="chars" data-i18n="exp.title">Опыт</h2>
+        <span class="sec-head__tag mono" data-i18n="exp.tag">команды и чужой код</span>
+      </div>
+      <p class="exp__intro" data-reveal data-i18n="exp.intro">Реальная работа в командах и внутри чужих, уже существующих систем. Здесь честно: где я была автором, а где — участником.</p>
+
+      <ol class="log">
+        <li class="log__item" data-reveal>
+          <div class="log__meta mono"><span class="log__id">EXP.01</span><span class="tag">team</span><span class="tag">existing codebase</span></div>
+          <div class="log__main">
+            <h3>Manager Portal / Titan</h3>
+            <p data-i18n="exp.t1">Большое корпоративное приложение, существовавшее до меня. Мои задачи — преимущественно небольшие frontend-правки:</p>
+            <ul class="dashes dashes--inline">
+              <li data-i18n="exp.t1a">исправление UI-багов</li><li data-i18n="exp.t1b">расположение элементов</li><li data-i18n="exp.t1c">кнопки</li><li data-i18n="exp.t1d">небольшие изменения интерфейса</li>
+            </ul>
+            <div class="log__stack"><span class="mono" data-i18n="exp.exposure">стек проекта · exposure</span><div class="chips chips--sm"><span>React</span><span>TypeScript</span><span>Kotlin</span><span>Spring Boot</span></div></div>
+            <p class="honest mono" data-i18n="exp.t1h">// портал разработан командой — я не автор приложения.</p>
+          </div>
+        </li>
+        <li class="log__item" data-reveal>
+          <div class="log__meta mono"><span class="log__id">EXP.02</span><span class="tag">internship</span><span class="tag">exposure</span></div>
+          <div class="log__main">
+            <h3>Ksever</h3>
+            <p data-i18n="exp.t2">Участие в проекте во время практики: знакомство с реальной командной разработкой и процессами.</p>
+            <p class="honest mono" data-i18n="exp.t2h">// сайт и backend разработаны не мной.</p>
+            <a class="ksx" href="https://kseverspb.ru" target="_blank" rel="noopener" data-live="https://kseverspb.ru" data-live-label="kseverspb.ru" data-cursor="live">
+              <span class="ksx__shot"><img src="assets/ksever/home-full.webp" alt="Сайт КСевер — главная страница" loading="lazy" decoding="async" /></span>
+              <span class="ksx__body">
+                <span class="ksx__top mono"><i class="ksx__dot"></i>kseverspb.ru<b>↗</b></span>
+                <span class="ksx__about" data-i18n="exp.t2s">Сайт инженерной компании из Санкт-Петербурга: газификация, котельные и инженерные сети. Услуги, объекты, новости, опросники и формы заявок.</span>
+                <span class="ksx__go mono" data-i18n="live.site">открыть живой сайт</span>
+              </span>
+            </a>
+          </div>
+        </li>
+        <li class="log__item" data-reveal>
+          <div class="log__meta mono"><span class="log__id">EXP.03</span><span class="tag">content</span></div>
+          <div class="log__main">
+            <h3 data-i18n="exp.t3t">Федерация мотоциклетного спорта Краснодарского края</h3>
+            <p data-i18n="exp.t3">Работа с существующим сайтом: размещение и обновление новостей и контента.</p>
+            <p class="honest mono" data-i18n="exp.t3h">// разработка сайта — не моя работа.</p>
+            <a class="ksx" href="https://fms-kk.ru" target="_blank" rel="noopener" data-live="https://fms-kk.ru" data-live-label="fms-kk.ru" data-cursor="live">
+              <span class="ksx__shot"><img src="assets/fmskk/home-full.webp" alt="Сайт ФМСКК — главная страница" loading="lazy" decoding="async" /></span>
+              <span class="ksx__body">
+                <span class="ksx__top mono"><i class="ksx__dot"></i>fms-kk.ru<b>↗</b></span>
+                <span class="ksx__about" data-i18n="exp.t3s">Официальный сайт федерации: новости, календарь соревнований по мотокроссу и мотоболу, документы, медиа и партнёры.</span>
+                <span class="ksx__go mono" data-i18n="live.site">открыть живой сайт</span>
+              </span>
+            </a>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section projects" id="projects" data-label="03 / projects">
+      <div class="sec-head">
+        <span class="sec-head__idx mono">03</span>
+        <h2 class="sec-head__title" data-split="chars" data-i18n="projects.title">Проекты</h2>
+        <span class="sec-head__tag mono">/cases — 04</span>
+      </div>
+
+      <div class="marquee">
+        <div class="marquee__track">
+          <span data-live="https://buggy23.ru" data-live-label="buggy23.ru">BUGGY23</span><i>✦</i><span data-live="https://kseverspb.ru" data-live-label="kseverspb.ru">KSEVER</span><i>✦</i><span data-live="https://fms-kk.ru" data-live-label="fms-kk.ru">FMS-KK</span><i>✦</i><span>TITAN</span><i>✦</i>
+          <span data-live="https://buggy23.ru" data-live-label="buggy23.ru">BUGGY23</span><i>✦</i><span data-live="https://kseverspb.ru" data-live-label="kseverspb.ru">KSEVER</span><i>✦</i><span data-live="https://fms-kk.ru" data-live-label="fms-kk.ru">FMS-KK</span><i>✦</i><span>TITAN</span><i>✦</i>
+        </div>
+      </div>
+
+
+      <!-- ===== CASE 01 — BUGGY23 ===== -->
+      <article class="case case--buggy" id="case-buggy">
+        <header class="case__head">
+          <div class="case__kicker mono"><span>case 01</span><span class="tag tag--hot">featured</span><span class="tag">commercial</span></div>
+          <h3 class="case__title case__title--xl" data-split="chars">BUGGY23</h3>
+          <p class="case__lead" data-reveal data-i18n="buggy.lead">Сайт компании, которая организует туры на багги, квадроциклах и эндуро.</p>
+        </header>
+
+        <div class="buggy">
+          <div class="buggy__stage" data-reveal>
+            <div class="btabs mono" role="tablist" aria-label="Страницы сайта"><button type="button" class="btab is-active" data-shot="home" data-url="">Главная</button><button type="button" class="btab" data-shot="buggy" data-url="buggy">Багги</button><button type="button" class="btab" data-shot="routes" data-url="routes">Маршруты</button><button type="button" class="btab" data-shot="enduro" data-url="enduro">Эндуро</button><button type="button" class="btab" data-shot="corporate" data-url="corporate">Корпоративы</button></div>
+            <div class="bshow">
+              <div class="browser browser--real" data-cursor="scroll">
+                <div class="browser__bar">
+                  <i></i><i></i><i></i>
+                  <span class="browser__url mono">buggy23.ru/<b id="bUrl"></b></span>
+                </div>
+                <div class="bscreen" id="bScreen">
+                <img class="bshot is-active bshot--long" data-shot="home" src="assets/buggy/home-full.webp" alt="BUGGY23 — Главная" decoding="async" />
+                <img class="bshot" data-shot="buggy" src="assets/buggy/buggy.webp" alt="BUGGY23 — Багги" loading="lazy" decoding="async" />
+                <img class="bshot" data-shot="routes" src="assets/buggy/routes.webp" alt="BUGGY23 — Маршруты" loading="lazy" decoding="async" />
+                <img class="bshot" data-shot="enduro" src="assets/buggy/enduro.webp" alt="BUGGY23 — Эндуро" loading="lazy" decoding="async" />
+                <img class="bshot" data-shot="corporate" src="assets/buggy/corporate.webp" alt="BUGGY23 — Корпоративы" loading="lazy" decoding="async" />
+                </div>
+              </div>
+              <div class="phone" aria-hidden="true">
+                <div class="phone__notch"></div>
+                <div class="phone__screen"><img src="assets/buggy/home-mobile-full.webp" alt="" decoding="async" /></div>
+              </div>
+            </div>
+            <p class="buggy__cap mono" data-i18n="buggy.cap2">* настоящие скриншоты сайта · наведи на окно — главная прокрутится целиком</p>
+            <button type="button" class="live-cta" data-live="https://buggy23.ru" data-live-label="buggy23.ru" data-magnetic data-cursor="live"><i class="live-cta__dot"></i><span data-i18n="live.site">открыть живой сайт</span></button>
+          </div>
+
+          <div class="buggy__info">
+            <div class="block" data-reveal>
+              <h4 class="block__k mono" data-i18n="buggy.ctxK">контекст</h4>
+              <p data-i18n="buggy.ctx">Мне достался уже существующий, но сырой сайт. Я самостоятельно значительно его переработала и довела до полноценного состояния.</p>
+            </div>
+            <div class="block" data-reveal>
+              <h4 class="block__k mono" data-i18n="buggy.didK">что сделала я</h4>
+              <ul class="checks">
+                <li data-i18n="buggy.d1">интерфейс и визуал</li>
+                <li data-i18n="buggy.d2">страницы и компоненты</li>
+                <li data-i18n="buggy.d3">адаптивность под мобильные</li>
+                <li data-i18n="buggy.d4">контент и общая доработка frontend</li>
+                <li data-i18n="buggy.a1">формы заявок</li>
+                <li data-i18n="buggy.a2">SEO-страницы</li>
+                <li data-i18n="buggy.a3">интеграция отправки заявок</li>
+              </ul>
+            </div>
+            <div class="chips" data-reveal>
+              <span>React 18</span><span>Vite</span><span>React Router</span><span>Tailwind CSS</span><span>Framer Motion</span>
+            </div>
+            <p class="honest mono" data-reveal data-i18n="buggy.honest">// честно: проект существовал до меня, и не всё в нём — моя работа (в том числе деплой). Моя зона — большая переработка frontend.</p>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ===== CASE 02 — WORD CARDS ===== -->
+      <article class="case case--cards" id="case-cards">
+        <div class="wcx-aurora" aria-hidden="true"><i></i><i></i></div>
+        <div class="wc">
+          <div class="wc__info">
+            <div class="case__kicker mono"><span>case 02</span><span class="tag wc-tag">live</span><span class="tag">web app</span></div>
+            <h3 class="case__title wc__title" data-reveal>WORD<span class="wc-grad">CARDS</span></h3>
+            <p class="case__lead" data-reveal data-i18n="wc.lead">Веб-приложение для изучения иностранных слов — уже работает онлайн.</p>
+            <div class="wc__feats" data-reveal>
+              <span data-i18n="wc.f1">аккаунты</span><span data-i18n="wc.f2">наборы слов</span><span data-i18n="wc.f3">карточки</span><span data-i18n="wc.f4">практика</span><span data-i18n="wc.f5">прогресс</span><span data-i18n="wc.f6">интервальное повторение</span>
+            </div>
+            <div class="chips chips--wc" data-reveal><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL</span></div>
+            <p class="honest mono" data-reveal data-i18n="wc.honest">// проект доведён до рабочей версии и выложен на Vercel.</p>
+            <button type="button" class="wc-cta" data-live="https://word-cards-eight-sigma.vercel.app" data-live-label="word-cards.vercel.app" data-magnetic data-cursor="live" data-reveal><span data-i18n="live.site">открыть живой сайт</span><i>↗</i></button>
+          </div>
+
+          <div class="wc__demo" data-reveal>
+            <div class="wc__app">
+              <span class="wc__logo"><i class="wc__mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg></i><span>Word<b>Cards</b></span></span>
+              <span class="wc__count" id="wcCount">1 / 5</span>
+            </div>
+            <div class="wc__dots" id="wcDots"></div>
+            <div class="flash" id="flash" tabindex="0" role="button" aria-label="Перевернуть карточку" data-cursor="flip">
+              <div class="flash__inner">
+                <div class="flash__face flash__front"><span data-i18n="wc.recall">вспомните перевод</span><b id="wcWord">serendipity</b><em data-i18n="wc.tap">нажмите на карточку</em></div>
+                <div class="flash__face flash__back"><span data-i18n="wc.answer">ответ</span><b id="wcTrans">счастливая случайность</b><em id="wcNext"></em></div>
+              </div>
+            </div>
+            <div class="wc__btns">
+              <button type="button" class="wc-btn wc-btn--no" id="wcAgain" data-i18n="wc.again">не знаю</button>
+              <button type="button" class="wc-btn wc-btn--yes" id="wcKnow" data-i18n="wc.know">знаю</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== CASE 03 — CAT° ===== -->
+      <article class="case case--catx" id="case-cat">
+        <div class="catx">
+          <div class="catx__stage" data-reveal data-live="demos/cute-cat/index.html" data-live-label="cat° / live" data-cursor="live" role="button" tabindex="0" aria-label="Открыть сайт CAT°">
+            <div class="catx__glow" aria-hidden="true"></div>
+            <div class="catx__word" aria-hidden="true">CAT<span>°</span></div>
+            <canvas class="catx__canvas" id="catxCanvas" aria-hidden="true"></canvas>
+            <span class="catx__play mono">▶ <span data-i18n="catx.play">запустить live</span></span>
+          </div>
+          <div class="catx__info">
+            <div class="case__kicker mono"><span>case 03</span><span class="tag tag--pink">solo</span><span class="tag">just for fun</span><span class="tag">canvas</span></div>
+            <h3 class="case__title">CAT<span class="pinkc">°</span></h3>
+            <p class="case__lead" data-reveal data-i18n="catx.lead">Шуточный проект: тёмный интерактивный сайт-приглашение на кофе. Главный герой — чёрный кот с изумрудными глазами, полностью нарисованный кодом.</p>
+            <ul class="feat-list mono" data-reveal>
+              <li><span>01</span><span data-i18n="catx.f1">глаза следят за курсором</span></li>
+              <li><span>02</span><span data-i18n="catx.f2">кот моргает, дышит, шевелит ушами</span></li>
+              <li><span>03</span><span data-i18n="catx.f3">«камера» подлетает к глазам при скролле</span></li>
+              <li><span>04</span><span data-i18n="catx.f4">убегающая кнопка «НЕТ» и пасхалки</span></li>
+            </ul>
+            <div class="chips" data-reveal><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Canvas 2D</span></div>
+            <button type="button" class="live-cta live-cta--pink" data-live="demos/cute-cat/index.html" data-live-label="cat° / live" data-magnetic data-cursor="live"><i class="live-cta__dot"></i><span data-i18n="live.run">запустить live-версию</span></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== CASE 04 — STARK VARG ===== -->
+      <article class="case case--varg" id="case-varg">
+        <div class="varg" id="varg">
+          <div class="varg__sticky">
+            <div class="varg__photos" id="vargPhotos">
+              <figure class="vph is-active"><img src="demos/stark-varg/assets/scene-side.webp" alt="" decoding="async" /></figure>
+              <figure class="vph"><img src="demos/stark-varg/assets/scene-angle.webp" alt="" loading="lazy" decoding="async" /></figure>
+              <figure class="vph"><img src="demos/stark-varg/assets/scene-detail.webp" alt="" loading="lazy" decoding="async" /></figure>
+              <figure class="vph"><img src="demos/stark-varg/assets/scene-rear.webp" alt="" loading="lazy" decoding="async" /></figure>
+            </div>
+            <div class="varg__shade" aria-hidden="true"></div>
+            <div class="varg__light" id="vargLight" aria-hidden="true"></div>
+            <div class="varg__flash" id="vargFlash" aria-hidden="true"></div>
+            <div class="varg__word" aria-hidden="true">VARG</div>
+
+            <div class="varg__labels" aria-hidden="true">
+              <div class="vlabel is-active"><span class="mono">01 <i></i> 04</span><b>SIDE PROFILE</b></div>
+              <div class="vlabel"><span class="mono">02 <i></i> 04</span><b>FRONT VIEW</b></div>
+              <div class="vlabel"><span class="mono">03 <i></i> 04</span><b>FRONT END</b></div>
+              <div class="vlabel"><span class="mono">04 <i></i> 04</span><b>REAR VIEW</b></div>
+            </div>
+
+            <div class="varg__info">
+              <div class="case__kicker mono"><span>case 04</span><span class="tag tag--red">solo</span><span class="tag">creative experiment</span></div>
+              <h3 class="case__title">STARK <span class="outline-red">VARG</span></h3>
+              <p data-i18n="varg.lead">Экспериментальный одностраничный сайт о Stark VARG. Полностью мой небольшой проект.</p>
+              <p class="varg__feat" data-i18n="varg.feat">Главная фишка — cinematic scroll: при прокрутке сцены с мотоциклом сменяют друг друга, как кадры фильма. Здесь — настоящие кадры сайта, они сменяются сами.</p>
+              <div class="chips chips--red"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <button type="button" class="live-cta live-cta--red" data-live="demos/stark-varg/index.html" data-live-label="stark-varg / live" data-magnetic data-cursor="live"><i class="live-cta__dot"></i><span data-i18n="live.site">открыть живой сайт</span></button>
+            </div>
+
+            <div class="varg__side mono" aria-hidden="true">
+              <span id="vargIdx">01</span><i><b id="vargBar"></b></i><span>04</span>
+            </div>
+            <div class="varg__bars" aria-label="Сцены">
+              <button type="button" class="vbar is-active" data-go="0" aria-label="Сцена 1"><i></i></button>
+              <button type="button" class="vbar" data-go="1" aria-label="Сцена 2"><i></i></button>
+              <button type="button" class="vbar" data-go="2" aria-label="Сцена 3"><i></i></button>
+              <button type="button" class="vbar" data-go="3" aria-label="Сцена 4"><i></i></button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section skills" id="skills" data-label="04 / stack">
+      <div class="sec-head">
+        <span class="sec-head__idx mono">04</span>
+        <h2 class="sec-head__title" data-split="chars" data-i18n="skills.title">Стек</h2>
+        <span class="sec-head__tag mono" data-i18n="skills.tag">без процентов — только правда</span>
+      </div>
+
+      <div class="skills__wrap">
+        <div class="orbit" id="orbit" data-reveal>
+          <div class="orbit__ring orbit__ring--1"></div>
+          <div class="orbit__ring orbit__ring--2"></div>
+          <div class="orbit__ring orbit__ring--3"></div>
+          <div class="orbit__core mono">VIKA<span>.stack</span></div>
+          <div class="orbit__nodes" id="orbitNodes"></div>
+        </div>
+
+        <div class="skills__side">
+          <div class="legend mono" data-reveal>
+            <div><i class="lg lg--core"></i><b>CORE</b><span data-i18n="skills.l1">уверенно</span></div>
+            <div><i class="lg lg--used"></i><b>WORKED WITH</b><span data-i18n="skills.l2">использовала в проектах</span></div>
+            <div><i class="lg lg--explore"></i><b>EXPLORING</b><span data-i18n="skills.l3">изучаю сейчас</span></div>
+          </div>
+          <div class="skill-panel" id="skillPanel" data-reveal aria-live="polite">
+            <span class="skill-panel__group mono" id="spGroup">hover / tap</span>
+            <b class="skill-panel__name" id="spName">—</b>
+            <span class="skill-panel__k mono" id="spK" data-i18n="skills.hint">наведи на технологию, чтобы увидеть, где она использовалась</span>
+            <ul class="skill-panel__list" id="spList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section class="section edu" id="education" data-label="04.5 / education">
+      <div class="sec-head sec-head--sm">
+        <span class="sec-head__idx mono">04.5</span>
+        <h2 class="sec-head__title" data-split="chars" data-i18n="edu.title">Образование</h2>
+      </div>
+      <div class="edu__rows">
+        <div class="edu__row" data-reveal>
+          <span class="edu__k mono" data-i18n="edu.k1">колледж</span>
+          <span class="edu__v" data-i18n="edu.v1">Колледж — программирование</span>
+          <span class="edu__s mono"><span class="seg"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span data-i18n="edu.s1">3 курс из 4</span></span>
+        </div>
+        <div class="edu__row" data-reveal>
+          <span class="edu__k mono" data-i18n="edu.k2">курс</span>
+          <span class="edu__v" data-i18n="edu.v2">МТИ — «Python для начинающих» · 100 часов</span>
+          <button type="button" class="edu__s edu__cert mono" data-cert="assets/cert-python.webp" data-cursor="view"><span class="st st--done">✓</span><span data-i18n="edu.s2">сертификат</span><i>↗</i></button>
+        </div>
+        <div class="edu__row" data-reveal>
+          <span class="edu__k mono" data-i18n="edu.k3">курс</span>
+          <span class="edu__v" data-i18n="edu.v3">Skillbox — Java-разработчик · 8 месяцев</span>
+          <span class="edu__s mono"><span class="st st--live"></span><span data-i18n="edu.s3">в процессе</span></span>
+        </div>
+        <div class="edu__row" data-reveal>
+          <span class="edu__k mono" data-i18n="edu.k4">курс</span>
+          <span class="edu__v" data-i18n="edu.v4">Skillbox — Machine Learning Engineer · 12 месяцев</span>
+          <span class="edu__s mono"><span class="st st--live"></span><span data-i18n="edu.s3">в процессе</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="contact" id="contact" data-label="05 / contact">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="contact__inner">
+        <span class="mono contact__k">05 — <span data-i18n="contact.k">связь</span></span>
+        <h2 class="contact__big" aria-label="Let's build something interesting.">
+          <span class="cl"><span class="cl__in" data-hover-letters>LET’S BUILD</span></span>
+          <span class="cl cl--outline"><span class="cl__in" data-hover-letters>SOMETHING</span></span>
+          <span class="cl cl--acc"><span class="cl__in" data-hover-letters>INTERESTING.</span></span>
+        </h2>
+        <p class="contact__sub" data-reveal data-i18n="contact.sub">Открыта к работе и любым новым проектам — web, backend и не только. Напишите — отвечу.</p>
+        <div class="contact__links">
+          <a class="mag" href="https://github.com/Victori707" target="_blank" rel="noopener" data-magnetic data-cursor="open"><span>GitHub</span><i>↗</i></a>
+          <a class="mag" href="https://t.me/VikaVi_i" target="_blank" rel="noopener" data-magnetic data-cursor="open"><span>Telegram</span><i>↗</i></a>
+          <a class="mag mag--acc" href="mailto:viktoryaizoto@yandex.ru" data-copy="viktoryaizoto@yandex.ru" data-magnetic data-cursor="copy"><span>Email</span><i>⧉</i></a>
+        </div>
+        <div class="contact__handles mono" data-reveal>
+          <a href="https://t.me/VikaVi_i" target="_blank" rel="noopener">tg: <b>@VikaVi_i</b></a>
+          <a href="mailto:viktoryaizoto@yandex.ru" data-copy="viktoryaizoto@yandex.ru">mail: <b>viktoryaizoto@yandex.ru</b></a>
+        </div>
+      </div>
+      <div class="chibi chibi--sleep" aria-hidden="true">
+        <span class="chibi__z"><i>z</i><i>z</i><i>z</i></span>
+        <img src="assets/vika/sleep.webp" alt="" width="1100" height="443" loading="lazy" decoding="async" />
+      </div>
+      <footer class="foot mono">
+        <span>© <span id="year">2026</span> Vika</span>
+        <span>created by <b class="foot__me">vikaVi</b></span>
+        <a href="#top" data-nav data-cursor="up">↑ top</a>
+      </footer>
+    </section>
+  </main>
+
+  <div class="toast mono" id="toast" role="status"></div>
+
+  <!-- ===== live window (iframe с настоящим сайтом) ===== -->
+  <div class="live" id="live" aria-hidden="true">
+    <div class="live__backdrop" data-live-close></div>
+    <div class="live__win" role="dialog" aria-modal="true" aria-label="Live demo">
+      <div class="live__bar">
+        <i></i><i></i><i></i>
+        <span class="live__url mono" id="liveUrl"></span>
+        <a class="live__btn mono" id="liveOpen" href="#" target="_blank" rel="noopener">↗ <span data-i18n="live.open">в новой вкладке</span></a>
+        <button type="button" class="live__btn live__close mono" data-live-close aria-label="Закрыть">✕</button>
+      </div>
+      <div class="live__body">
+        <div class="live__loader mono"><span>loading…</span><small data-i18n="live.hint">если сайт не загрузился — открой его в новой вкладке ↗</small></div>
+        <iframe id="liveFrame" title="Live demo"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- smooth scroll (optional, graceful fallback) -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <div class="cert-lb" id="certLb" aria-hidden="true" role="dialog" aria-label="Сертификат">
+    <button type="button" class="cert-lb__close mono" data-cert-close aria-label="Закрыть">✕</button>
+    <img class="cert-lb__img" id="certImg" alt="Сертификат МТИ «Python для начинающих»" />
+  </div>
+  <script src="demos/cute-cat/cat.js?v=55" defer></script>
+  <script src="js/i18n.js?v=55" defer></script>
+  <script src="js/main.js?v=55" defer></script>
+</body>
+</html>

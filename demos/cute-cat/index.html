@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>CAT° — very important website</title>
+  <meta name="description" content="CAT° — официальный портал важных предложений. Один чёрный кот, два изумрудных глаза и одно очень важное предложение." />
+  <meta name="theme-color" content="#050505" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050505'/%3E%3Cellipse cx='22' cy='34' rx='9' ry='6' fill='%2322e07a'/%3E%3Cellipse cx='42' cy='34' rx='9' ry='6' fill='%2322e07a'/%3E%3Crect x='20.5' y='28' width='3' height='12' rx='1.5'/%3E%3Crect x='40.5' y='28' width='3' height='12' rx='1.5'/%3E%3C/svg%3E" />
+</head>
+<body class="is-loading">
+  <!-- ============ атмосфера ============ -->
+  <div class="atmo" aria-hidden="true">
+    <span class="atmo__glow atmo__glow--1"></span>
+    <span class="atmo__glow atmo__glow--2"></span>
+    <span class="atmo__shape atmo__shape--1"></span>
+    <span class="atmo__shape atmo__shape--2"></span>
+  </div>
+  <canvas class="dust" id="dust" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ курсор ============ -->
+  <div class="cursor" aria-hidden="true">
+    <span class="cursor__glow"></span>
+  </div>
+
+  <!-- ============ загрузка ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__eyes"><i></i><i></i></div>
+    <span class="loader__txt">CAT°</span>
+  </div>
+
+  <!-- ============ навигация ============ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" data-scroll data-magnetic>CAT<span>°</span></a>
+    <nav class="nav__links" aria-label="Навигация">
+      <a href="#gaze" data-scroll>Взгляд</a>
+      <a href="#terms" data-scroll>Договор</a>
+      <a href="#coffee" data-scroll>Кофе</a>
+    </nav>
+    <a href="#coffee" class="btn btn--pink btn--sm nav__cta" data-scroll data-magnetic data-dilate><span>Пойти на кофе</span></a>
+  </header>
+
+  <main>
+    <!-- ================================================
+         HERO + «камера» к глазам (sticky-сцена)
+         ================================================ -->
+    <section class="stage" id="top">
+      <div class="stage__sticky">
+        <div class="hero-type" aria-hidden="true">
+          <span class="hero-type__word">CAT</span>
+          <span class="hero-type__deg">°</span>
+        </div>
+
+        <canvas class="cat-canvas" id="catCanvas" role="img" aria-label="Чёрный кот с изумрудными глазами следит за курсором"></canvas>
+
+        <div class="hero-ui">
+          <div class="hero-ui__top">
+            <span class="eyebrow"><i class="dot"></i> very important website — vol. 01</span>
+          </div>
+          <div class="hero-ui__main">
+            <h1 class="hero-title">
+              <span class="line"><span>Официальный</span></span>
+              <span class="line"><span>портал <em>важных</em></span></span>
+              <span class="line"><span>предложений.</span></span>
+            </h1>
+            <p class="hero-sub">Один чёрный кот. Два изумрудных глаза.<br />Одно очень важное предложение.</p>
+            <div class="hero-actions">
+              <a href="#coffee" class="btn btn--pink" data-scroll data-magnetic data-dilate><span>Узнать предложение</span><i>→</i></a>
+              <a href="#gaze" class="btn btn--ghost" data-scroll data-magnetic><span>Посмотреть в глаза</span></a>
+            </div>
+          </div>
+          <div class="hero-ui__bottom">
+            <span class="meta"><i class="dot dot--green"></i> eye-tracking: on</span>
+            <span class="meta scroll-hint">листай, чтобы подойти ближе <i></i></span>
+          </div>
+        </div>
+
+        <!-- фаза 1: камера в глаза -->
+        <div class="gaze-text" id="gaze" aria-live="off">
+          <p class="gaze-line" data-at="0.16">Он смотрит.</p>
+          <p class="gaze-line" data-at="0.24">Он ждёт.</p>
+          <p class="gaze-line gaze-line--pink" data-at="0.32">Он знает, что ты ещё <em>не пил кофе.</em></p>
+        </div>
+
+        <!-- фаза 2: кот уходит в сторону, контент — через маску -->
+        <div class="reveal-panel" id="revealPanel">
+          <span class="kicker">01 — предложение</span>
+          <h2 class="reveal-panel__title">Не просто кот.<br /><span class="outline">Официальный</span><br />представитель<br /><em>важных предложений.</em></h2>
+          <p class="reveal-panel__text">Он не мурлычет попусту и не моргает просто так. Каждое медленное моргание — это знак доверия. Каждый взгляд — напоминание: кофе сам себя не выпьет.</p>
+        </div>
+
+        <div class="stage__progress" aria-hidden="true"><i id="stageBar"></i></div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         бегущие слова
+         ================================================ -->
+    <section class="words" aria-hidden="true">
+      <div class="words__row" data-speed="-0.35">
+        <span>MIDNIGHT</span><b>✦</b><span class="o">ESPRESSO</span><b>✦</b><span>BLACK VELVET</span><b>✦</b><span class="o">PURR</span><b>✦</b><span>MIDNIGHT</span><b>✦</b><span class="o">ESPRESSO</span><b>✦</b>
+      </div>
+      <div class="words__row words__row--2" data-speed="0.25">
+        <span class="o">EMERALD</span><b>✦</b><span>SLOW BLINK</span><b>✦</b><span class="o">CAT°</span><b>✦</b><span>SOFT PAWS</span><b>✦</b><span class="o">EMERALD</span><b>✦</b><span>SLOW BLINK</span><b>✦</b>
+      </div>
+    </section>
+
+    <!-- ================================================
+         договор
+         ================================================ -->
+    <section class="deal" id="terms">
+      <div class="deal__bg" aria-hidden="true" data-speed="0.18">DEAL</div>
+      <div class="deal__head">
+        <span class="kicker">02 — договор</span>
+        <h2 class="sec-title" data-split>Условия <em>договора</em></h2>
+        <p class="sec-note" data-reveal>Составлено котом. Проверено котом. Обжалованию не подлежит. Наведи на пункт — кот объяснит.</p>
+      </div>
+
+      <div class="deal__wrap">
+        <article class="contract" id="contract">
+          <span class="contract__shine" aria-hidden="true"></span>
+          <div class="contract__top">
+            <span class="contract__logo">CAT<span>°</span></span>
+            <span class="contract__no">договор № 001<br /><b id="dealDate">сегодня</b></span>
+          </div>
+          <p class="contract__parties">Стороны: <b>Кот</b> (далее — «Кот») и <b>ты</b> (далее — «тот, кто платит»).</p>
+          <ul class="contract__rows">
+            <li data-tip="эспрессо, латте, раф — кот не привередлив"><span>предмет</span><i></i><b>кофе</b></li>
+            <li data-tip="одна чашка — это не «много». это «для начала»"><span>количество</span><i></i><b>много</b></li>
+            <li data-tip="у кота нет кошелька. у кота лапки"><span>кто платит</span><i></i><b class="pink">ты</b></li>
+            <li data-tip="одобрено медленным морганием. это серьёзно"><span>котик</span><i></i><b>одобряет</b></li>
+            <li data-tip="перенос на завтра не предусмотрен. завтра — тоже кофе"><span>срок</span><i></i><b>сегодня</b></li>
+          </ul>
+          <p class="contract__note" id="dealTip"><span>примечание:</span> <em>наведи на пункт договора</em></p>
+          <div class="contract__total"><span>итого</span><b>1 кофе = ∞ мурчания</b></div>
+          <div class="contract__foot">
+            <div class="contract__sign">
+              <svg viewBox="0 0 200 60" aria-hidden="true"><path d="M6 44c14-24 22-32 26-28s-10 30-4 30 18-34 26-32-6 28 2 28 14-20 22-20-2 18 6 18 12-14 20-14 4 10 10 10c10 0 16-12 28-12s18 8 30 6"/></svg>
+              <span>подпись кота</span>
+            </div>
+            <div class="stamp" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><g fill="currentColor"><ellipse cx="32" cy="41" rx="12" ry="10"/><ellipse cx="17" cy="27" rx="5" ry="6.5"/><ellipse cx="26" cy="17" rx="5" ry="6.5"/><ellipse cx="38" cy="17" rx="5" ry="6.5"/><ellipse cx="47" cy="27" rx="5" ry="6.5"/></g></svg>
+              <span>одобрено<br />котом</span>
+            </div>
+          </div>
+          <div class="barcode" aria-hidden="true"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================================================
+         финальный CTA
+         ================================================ -->
+    <section class="final" id="coffee">
+      <canvas class="final__canvas" id="finalCanvas" aria-hidden="true"></canvas>
+      <div class="final__vignette" aria-hidden="true"></div>
+      <div class="final__content" id="finalContent">
+        <span class="kicker kicker--center">последний вопрос</span>
+        <h2 class="final__title" data-split>Пойдём пить <em>кофе?</em></h2>
+        <p class="final__sub" data-reveal>за твой счёт, конечно же</p>
+        <div class="final__actions" data-reveal>
+          <button type="button" class="btn btn--pink btn--xl" id="yesBtn" data-magnetic data-dilate><span>ДА</span></button>
+        </div>
+      </div>
+      <div class="final__done" id="finalDone" aria-live="polite">
+        <span class="kicker kicker--center">договор подписан</span>
+        <h2 class="final__title">Договорились.</h2>
+        <svg class="sign" viewBox="0 0 320 80" aria-hidden="true"><path d="M10 56c20-30 32-42 38-36s-14 42-6 42 26-48 38-44-8 40 4 40 20-28 32-28-4 26 8 26 18-20 30-20 6 14 14 14c14 0 24-18 40-18s26 12 44 8 34-14 56-18"/></svg>
+        <p class="final__sub">Теперь назад пути нет. Кот моргнул медленно — это значит «люблю».</p>
+      </div>
+      <button type="button" class="no-btn" id="noBtn"><span class="no-btn__txt">НЕТ</span></button>
+      <canvas class="burst" id="burst" aria-hidden="true"></canvas>
+    </section>
+  </main>
+
+  <!-- ============ footer ============ -->
+  <footer class="footer">
+    <div class="footer__logo" aria-hidden="true">CAT<span>°</span></div>
+    <div class="footer__row">
+      <span>© <span id="year">2026</span> very important website</span>
+      <nav>
+        <a href="#top" data-scroll>наверх</a>
+        <a href="#terms" data-scroll>договор</a>
+        <a href="#coffee" data-scroll>кофе</a>
+      </nav>
+      <button type="button" class="creator" id="creator">created by <b>vikaVi</b><i>🐾 мяу</i></button>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <!--
+      /\_/\
+     ( o.o )   эй, ты читаешь исходник?
+      > ^ <    значит, ты свой. сайт сделала vikaVi.
+               секрет: набери на клавиатуре «vika».
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="cat.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
