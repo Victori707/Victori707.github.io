@@ -13,7 +13,7 @@ window.I18N = {
     'nav.projects': 'projects',
     'nav.experience': 'experience',
     'nav.skills': 'stack',
-    'nav.contact': 'contact',
+    'nav.contact': 'contacts',
     'hero.scroll': 'scroll',
 
     'about.title': 'About',
@@ -37,7 +37,7 @@ window.I18N = {
     'buggy.cap': '* schematic before / after illustration, not a screenshot',
     'buggy.cap2': '* real screenshots of the site · hover the window — the home page scrolls through',
     'buggy.ctxK': 'context',
-    'buggy.ctx': 'I received an existing but rough website. On my own, I substantially reworked it and brought it to a complete, polished state.',
+    'buggy.ctx': 'Built the website from scratch: from structure and visuals to layout, responsive design and booking forms.',
     'buggy.didK': 'what I did',
     'buggy.d1': 'interface & visuals',
     'buggy.d2': 'pages & components',
@@ -75,18 +75,18 @@ window.I18N = {
     'wc.know': 'got it',
 
     'exp.title': 'Experience',
-    'exp.tag': 'teams & existing code',
-    'exp.intro': 'Real work in teams and inside other people’s existing systems. Honest about where I was the author and where I was a participant.',
-    'exp.t1': 'A large corporate application that existed before me. My tasks were mostly small frontend fixes:',
-    'exp.t1a': 'fixing UI bugs', 'exp.t1b': 'element positioning', 'exp.t1c': 'buttons', 'exp.t1d': 'small interface changes',
-    'exp.exposure': 'project stack · exposure',
-    'exp.t1h': '// the portal was built by the team — I’m not its author.',
-    'exp.t2': 'Participation in the project during my internship: getting to know real team development and its processes.',
+    'exp.tag': 'teams & real projects',
+    'exp.intro': 'Real work in teams and on live projects: from mockups and UI/UX to backend integration.',
+    'exp.t1': 'A large corporate application. I took part in its development as part of the team:',
+    'exp.t1a': 'active UI/UX development', 'exp.t1b': 'design mockups and their implementation', 'exp.t1c': 'portal interface redesign', 'exp.t1d': 'backend integrations', 'exp.t1e': 'backend tasks',
+    'exp.exposure': 'project stack',
+    'exp.t1h': '// team product development: from mockup to backend integration.',
+    'exp.t2': 'Team internship: working on a real project and taking part in team development processes.',
     'exp.t2h': '// the website and backend were not built by me.',
     'exp.t2s': 'Website of an engineering company from Saint Petersburg: gas supply, boiler houses and utility networks. Services, projects, news, questionnaires and request forms.',
     'exp.t2hint': 'hover the window — the page scrolls',
     'exp.t3t': 'Krasnodar Region Motorcycle Sport Federation',
-    'exp.t3': 'Working with an existing website: publishing and updating news and content.',
+    'exp.t3': 'Actively contributed to the federation’s website: fixed bugs on my own, built improvements, updated content and news.',
     'exp.t3h': '// the website development is not my work.',
     'exp.t3s': 'The federation’s official website: news, motocross and motoball race calendar, documents, media and partners.',
 
@@ -107,7 +107,7 @@ window.I18N = {
     'edu.s2': 'certificate',
     'edu.s3': 'in progress',
 
-    'contact.k': 'contact',
+    'contact.k': 'contacts',
     'contact.sub': 'Open to work and to any new projects — web, backend and beyond. Drop me a line — I’ll reply.',
 
     'catx.play': 'run live',
@@ -127,11 +127,11 @@ window.I18N = {
     ru: {
       intro: ['> initializing…', '> loading projects…', '> mounting curiosity.module', '> welcome.'],
       term: {
-        whoami: 'vika — начинающий web / backend developer\nстудентка колледжа\n3 курс из 4',
+        whoami: 'vika — software developer\nui/ux · frontend · backend\nстудентка колледжа, 3 курс из 4',
         core: 'python   html   css\n\n# то, на чём я пишу уверенно',
         used: 'javascript  react\njava  kotlin\nflask  sql  git\n\n# работала с этим в проектах и учёбе',
         now: '→ учу java (skillbox · java developer)\n→ разбираюсь в backend-архитектуре\n→ двигаюсь от web к backend',
-        honest: '→ готова изучать новое и разбираться в сложном\n→ умею работать с ИИ-инструментами в разработке\n→ хочу расти в backend: java, spring, базы данных\n→ открыта к стажировке и первой работе в команде'
+        honest: '→ готова изучать новое и разбираться в сложном\n→ понимаю, как устроены ИИ-инструменты, и применяю их в работе: тесты, рефакторинг, разбор кода\n→ хочу расти в backend: java, spring, базы данных\n→ открыта к стажировке и первой работе в команде'
       },
       groups: { core: 'core · уверенно', used: 'worked with · в проектах', explore: 'exploring · изучаю' },
       usedIn: 'где встречалась',
@@ -146,11 +146,11 @@ window.I18N = {
     en: {
       intro: ['> initializing…', '> loading projects…', '> mounting curiosity.module', '> welcome.'],
       term: {
-        whoami: 'vika — junior web / backend developer\ncollege student\nyear 3 of 4',
+        whoami: 'vika — software developer\nui/ux · frontend · backend\ncollege student, year 3 of 4',
         core: 'python   html   css\n\n# what I write with confidence',
         used: 'javascript  react\njava  kotlin\nflask  sql  git\n\n# used in projects and studies',
         now: '→ learning java (skillbox · java developer)\n→ digging into backend architecture\n→ moving from web towards backend',
-        honest: '→ ready to learn new things and dig into hard ones\n→ know how to use AI tools in development\n→ want to grow in backend: java, spring, databases\n→ open to an internship and a first job in a team'
+        honest: '→ ready to learn new things and dig into hard ones\n→ understand how AI tools work and use them in practice: tests, refactoring, code review\n→ want to grow in backend: java, spring, databases\n→ open to an internship and a first job in a team'
       },
       groups: { core: 'core · confident', used: 'worked with · in projects', explore: 'exploring · learning' },
       usedIn: 'where it was used',
