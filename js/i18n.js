@@ -17,7 +17,7 @@ window.I18N = {
     'hero.scroll': 'scroll',
 
     'about.title': 'About',
-    'about.manifest': 'I’m Vika. A 3rd-year student. I make interfaces that feel good to touch — and I’m learning what happens underneath them, which is why I’m gradually moving towards backend. I have a solid understanding of how AI models work and build software together with them.',
+    'about.manifest': 'I’m Vika. A 3rd-year student. I make interfaces that feel good to touch — and I’m learning what happens underneath them, which is why I’m gradually moving towards backend. I understand how AI works and use it in development deliberately: not blind generation — I know the pitfalls and keep the output under control.',
     'about.f1k': 'year',
     'about.f1d': 'college, year 3 of 4',
     'about.f2k': 'confident',
@@ -25,7 +25,7 @@ window.I18N = {
     'about.f3k': 'learning now',
     'about.f3d': 'Java Developer course by Skillbox',
     'about.f4k': 'AI',
-    'about.f4d': 'I understand how AI works and use it across development: code, tests, review',
+    'about.f4d': 'building and testing apps and interfaces with ChatGPT and Claude',
 
     'projects.title': 'Projects',
     'buggy.lead': 'Website for a company that runs buggy, ATV and enduro tours.',
@@ -78,7 +78,7 @@ window.I18N = {
     'exp.tag': 'teams & real projects',
     'exp.intro': 'Real work in teams and on live projects: from mockups and UI/UX to backend integration.',
     'exp.t1': 'A large corporate application. I took part in its development as part of the team:',
-    'exp.t1a': 'active UI/UX development', 'exp.t1b': 'design mockups and their implementation', 'exp.t1c': 'portal interface redesign', 'exp.t1d': 'backend integrations', 'exp.t1e': 'backend tasks',
+    'exp.t1a': 'active UI/UX development', 'exp.t1b': 'design mockups and their implementation', 'exp.t1c': 'portal interface redesign', 'exp.t1d': 'backend integrations', 'exp.t1e': 'backend tasks', 'exp.t1f': 'helped build the portal’s AI agent',
     'exp.exposure': 'project stack',
     'exp.t1h': '// team product development: from mockup to backend integration.',
     'exp.t2': 'Team internship: working on a real project and taking part in team development processes.',
@@ -131,7 +131,7 @@ window.I18N = {
         core: 'python   html   css   ai-tools\n\n# то, чем владею уверенно',
         used: 'javascript  react\njava  kotlin\nflask  sql  git\n\n# работала с этим в проектах и учёбе',
         now: '→ учу java (skillbox · java developer)\n→ разбираюсь в backend-архитектуре\n→ двигаюсь от web к backend',
-        honest: '→ готова изучать новое и разбираться в сложном\n→ понимаю, как устроены ИИ-инструменты, и применяю их в работе: тесты, рефакторинг, разбор кода\n→ хочу расти в backend: java, spring, базы данных\n→ открыта к стажировке и первой работе в команде'
+        honest: '→ готова изучать новое и разбираться в сложном\n→ разрабатываю и тестирую приложения и интерфейсы с ChatGPT и Claude\n→ знаю подводные камни ИИ: проверяю и контролирую результат, а не генерирую вслепую\n→ хочу расти в backend: java, spring, базы данных\n→ открыта к стажировке и первой работе в команде'
       },
       groups: { core: 'core · уверенно', used: 'worked with · в проектах', explore: 'exploring · изучаю' },
       usedIn: 'где встречалась',
@@ -150,7 +150,7 @@ window.I18N = {
         core: 'python   html   css   ai-tools\n\n# what I’m confident with',
         used: 'javascript  react\njava  kotlin\nflask  sql  git\n\n# used in projects and studies',
         now: '→ learning java (skillbox · java developer)\n→ digging into backend architecture\n→ moving from web towards backend',
-        honest: '→ ready to learn new things and dig into hard ones\n→ understand how AI tools work and use them in practice: tests, refactoring, code review\n→ want to grow in backend: java, spring, databases\n→ open to an internship and a first job in a team'
+        honest: '→ ready to learn new things and dig into hard ones\n→ build and test apps and interfaces with ChatGPT and Claude\n→ know AI’s pitfalls: I review and control the output instead of generating blindly\n→ want to grow in backend: java, spring, databases\n→ open to an internship and a first job in a team'
       },
       groups: { core: 'core · confident', used: 'worked with · in projects', explore: 'exploring · learning' },
       usedIn: 'where it was used',
