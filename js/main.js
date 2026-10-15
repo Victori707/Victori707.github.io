@@ -749,6 +749,7 @@
     { n: 'SQL', g: 'used', p: ['cards'] },
     { n: 'PostgreSQL', g: 'used', p: ['cards'] },
     { n: 'Git', g: 'used', p: ['all'] },
+    { n: 'AI', g: 'core', p: ['all'], full: 'AI-assisted development' },
     { n: 'Java', g: 'explore', p: ['skillbox'] },
     { n: 'ML', g: 'explore', p: ['ml'], full: 'Machine Learning' },
     { n: 'Spring', g: 'explore', p: ['skillbox', 'titan'], full: 'Spring ecosystem' },

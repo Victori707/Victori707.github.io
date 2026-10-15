@@ -17,15 +17,15 @@ window.I18N = {
     'hero.scroll': 'scroll',
 
     'about.title': 'About',
-    'about.manifest': 'I’m Vika. A 3rd-year student. I make interfaces that feel good to touch — and I’m learning what happens underneath them, which is why I’m gradually moving towards backend.',
+    'about.manifest': 'I’m Vika. A 3rd-year student. I make interfaces that feel good to touch — and I’m learning what happens underneath them, which is why I’m gradually moving towards backend. I have a solid understanding of how AI models work and build software together with them.',
     'about.f1k': 'year',
     'about.f1d': 'college, year 3 of 4',
     'about.f2k': 'confident',
     'about.f2d': 'the foundation everything else stands on',
     'about.f3k': 'learning now',
     'about.f3d': 'Java Developer course by Skillbox',
-    'about.f4k': 'direction',
-    'about.f4d': 'from interfaces to how things work inside',
+    'about.f4k': 'AI',
+    'about.f4d': 'I understand how AI works and use it across development: code, tests, review',
 
     'projects.title': 'Projects',
     'buggy.lead': 'Website for a company that runs buggy, ATV and enduro tours.',
@@ -86,7 +86,7 @@ window.I18N = {
     'exp.t2s': 'Website of an engineering company from Saint Petersburg: gas supply, boiler houses and utility networks. Services, projects, news, questionnaires and request forms.',
     'exp.t2hint': 'hover the window — the page scrolls',
     'exp.t3t': 'Krasnodar Region Motorcycle Sport Federation',
-    'exp.t3': 'Actively contributed to the federation’s website: fixed bugs on my own, built improvements, updated content and news.',
+    'exp.t3': 'Worked on the UI/UX of the federation’s website: building pages, layout and animations. Also feature improvements and content updates.',
     'exp.t3h': '// the website development is not my work.',
     'exp.t3s': 'The federation’s official website: news, motocross and motoball race calendar, documents, media and partners.',
 
@@ -128,7 +128,7 @@ window.I18N = {
       intro: ['> initializing…', '> loading projects…', '> mounting curiosity.module', '> welcome.'],
       term: {
         whoami: 'vika — software developer\nui/ux · frontend · backend\nстудентка колледжа, 3 курс из 4',
-        core: 'python   html   css\n\n# то, на чём я пишу уверенно',
+        core: 'python   html   css   ai-tools\n\n# то, чем владею уверенно',
         used: 'javascript  react\njava  kotlin\nflask  sql  git\n\n# работала с этим в проектах и учёбе',
         now: '→ учу java (skillbox · java developer)\n→ разбираюсь в backend-архитектуре\n→ двигаюсь от web к backend',
         honest: '→ готова изучать новое и разбираться в сложном\n→ понимаю, как устроены ИИ-инструменты, и применяю их в работе: тесты, рефакторинг, разбор кода\n→ хочу расти в backend: java, spring, базы данных\n→ открыта к стажировке и первой работе в команде'
@@ -147,7 +147,7 @@ window.I18N = {
       intro: ['> initializing…', '> loading projects…', '> mounting curiosity.module', '> welcome.'],
       term: {
         whoami: 'vika — software developer\nui/ux · frontend · backend\ncollege student, year 3 of 4',
-        core: 'python   html   css\n\n# what I write with confidence',
+        core: 'python   html   css   ai-tools\n\n# what I’m confident with',
         used: 'javascript  react\njava  kotlin\nflask  sql  git\n\n# used in projects and studies',
         now: '→ learning java (skillbox · java developer)\n→ digging into backend architecture\n→ moving from web towards backend',
         honest: '→ ready to learn new things and dig into hard ones\n→ understand how AI tools work and use them in practice: tests, refactoring, code review\n→ want to grow in backend: java, spring, databases\n→ open to an internship and a first job in a team'
