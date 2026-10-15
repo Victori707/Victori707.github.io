@@ -101,7 +101,7 @@ window.I18N = {
     'edu.k1': 'college', 'edu.k2': 'course', 'edu.k3': 'course', 'edu.k4': 'course',
     'edu.v3': 'Skillbox — Java Developer · 8 months',
     'edu.v4': 'Skillbox — Machine Learning Engineer · 12 months',
-    'edu.v1': 'College — programming',
+    'edu.v1': 'RTU MIREA College of Programming and Cybersecurity — 09.02.07 “Information Systems and Programming”',
     'edu.v2': 'MTI — “Python for Beginners” · 100 hours',
     'edu.s1': 'year 3 of 4',
     'edu.s2': 'certificate',
